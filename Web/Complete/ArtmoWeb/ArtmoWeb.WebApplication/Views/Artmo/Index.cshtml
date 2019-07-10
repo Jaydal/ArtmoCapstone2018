@@ -1,0 +1,205 @@
+﻿@model IEnumerable<ArtmoWeb.WebApplication.Models.ArtmoModels>
+
+@{
+    /**/
+
+    /**/
+
+    /**/
+
+    ViewBag.Title = "Items";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Index", "Artmo", FormMethod.Post,
+                                      new { enctype = "multipart/form-data" }))
+{
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "Target",
+        Value = "marker"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Name",
+        Value = "Name",
+        Selected = true
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Term",
+        Value = "GTerm"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Date Acquired",
+        Value = "DateAcquired"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Date Added",
+        Value = "DateAdded"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Last Modified",
+        Value = "LastModified"
+    });
+
+    <div class="float-right">
+        <div class="input-group">
+
+            @Html.DropDownList("SortBy", listItems, "--Sort By--", new { @class = "btn btn-outline-dark ripple form-control" })
+            @Html.TextBox("searchString", "", new { @class = "form-control", @placeholder = "Search for", @style = "cursor:text", title = "Search Area", id = "txtSearch" })
+            <span class="input-group-btn">
+                <button id="btnSearch" title="Search" class="btn-fluid bg-white material-icons ripple border-0" type="submit">
+                    search
+                </button>
+            </span>
+        </div>
+    </div>
+}
+<div class="float-left">
+    <p>
+        <button class="btn btn-dark ripple" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
+            Backup/Restore
+        </button>
+    </p>
+    <div class="collapse" id="collapse">
+        <center>
+            <div class="card card-body">
+                <div class="form-group">
+
+                    @Html.ActionLink("get_app", "DownloadFile", null, new { @class = "material-icons text-black", title = "Download Data" })
+                    @Html.ActionLink("backup", "BackupFile", null, new { @class = "material-icons text-black", title = "Backup Data" })
+                    @Ajax.ActionLink("restore", "RestoreFile", null, new AjaxOptions()
+                     {
+                         HttpMethod = "GET",
+                         InsertionMode = InsertionMode.Replace,
+                         UpdateTargetId = "post"
+                     }, new { @class = "material-icons  text-black", data_toggle = "modal", data_target = "#myInput", title = "Restore Data" })<br />
+                    @Html.ActionLink("Show Logs", "LogFile", null, new { @class = "btn btn-link text-black", title = "Data Log File" })
+                </div>
+
+            </div>
+        </center>
+
+    </div>
+</div>
+@using (Html.BeginForm("Index", "Artmo"))
+{
+    <center>
+        <img id="ajax-loaders" style="display:none;position: absolute; left: 0;top: 0;right: 0;bottom: 0;
+    margin: auto;" src=@Url.Content("~/Content/h6viz.gif") />
+    </center>
+
+    <table class="table table-responsive-lg" id="tb">
+        <tr>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">Target</span></h5></center>
+            </th>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">Name</span></h5></center>
+            </th>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">Generic Term</span></h5></center>
+            </th>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">Date Acquired</span></h5></center>
+            </th>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">Date Added</span></h5></center>
+            </th>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">Last Modified</span></h5></center>
+            </th>
+            <th>
+
+                <div class="form-group">
+                    <center>
+
+                        @Ajax.ActionLink("add_circle_outline", "AddEdit", null, new AjaxOptions()
+                   {
+                       HttpMethod = "GET",
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "post"
+                   }, new { @class = "btn btn-dark material-icons ripple", data_toggle = "modal", data_target = "#myInput", title = "Add New Item" })
+
+
+                    </center>
+                </div>
+            </th>
+        </tr>
+        @{
+            var c = 0;
+        }
+        @foreach (var item in Model)
+        {
+            c++;
+            <tr>
+
+                <td>
+                    <center>
+                        @{
+                            string src = "";
+                            if (item.Marker < 10)
+                            {
+                                src = "/_Markers/00" + item.Marker + ".jpg";
+                            }
+                            else if (item.Marker < 100)
+                            {
+                                src = "/_Markers/0" + item.Marker + ".jpg";
+                            }
+                            else
+                            {
+                                src = "/_Markers/" + item.Marker + ".jpg";
+                            }
+                        }
+                        <span class="hiddentxt pointer text-dark font-weight-bold text-md-left">@item.Marker - @item.Id</span>
+                        <span class="hiddenimg">
+                            <img alt="Item is disabled." src=@src class="img-thumbnail" id="marker" style="max-width:75px;max-height:75px;" />
+                        </span>
+                    </center>
+
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.Name)</center>
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.GenericTerm)</center>
+
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.DateAcquired)</center>
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.DateAdded)</center>
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.LastModified)</center>
+                </td>
+                <td>
+                    <center>
+                        @Ajax.ActionLink("edit", "AddEdit", new { id = item.Id }, new AjaxOptions()
+                   {
+                       HttpMethod = "GET",
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "post"
+                   }, new { @class = "material-icons  text-black", data_toggle = "modal", data_target = "#myInput", title="Edit Item"})
+                        @Ajax.ActionLink("info", "_Details", new { id = item.Id }, new AjaxOptions()
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "post"
+                        }, new { @class = "material-icons  text-black", data_toggle = "modal", data_target = "#myInput",title="Details" })
+                    </center>
+
+                </td>
+
+            </tr>
+
+        }
+    </table>
+    <p> Total # of items: @c</p>
+
+}

@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Marker";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@Html.ActionLink("View Complete List", "Index", null, new { @class = "btn btn-block" })*@
+<hr />
+<div class="ui cards centered container">
+
+    @{
+        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(Server.MapPath("~/_Markers/"));
+        foreach (System.IO.FileInfo f in dir.GetFiles("*.*"))
+        {
+            string src = "/_Markers/" + @f.Name;
+            var id = f.Name.Replace(".jpg", "");
+    <div class="card bg-transparent" style="height:auto;width:11.7rem;">
+            @{int _id = Convert.ToInt32(id);}
+
+        @Ajax.ActionLink("Target # " + id, "Items", new { marker = _id }, new AjaxOptions()
+   {
+       HttpMethod = "GET",
+       InsertionMode = InsertionMode.Replace,
+       UpdateTargetId = "post"
+   },  new { @class = "btn btn-dark ripple", data_toggle = "modal", data_target = "#myInput" })
+
+        <img src=@src class="img-thumbnail" style="width:11.7rem;height:11.7rem;" id=@_id alt="Marker" />
+        <center>
+            @Ajax.ActionLink("add", "AddEdit", new { marker = _id }, new AjaxOptions()
+       {
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "post"
+       },  new { @class = "btn ripple material-icons btn-block", data_toggle = "modal", data_target = "#myInput" })
+        </center>
+    </div>
+        }
+
+    }
+
+</div>
+@Scripts.Render("~/bundles/jqueryval")

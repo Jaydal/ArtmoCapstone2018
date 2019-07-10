@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ArtmoWeb.WebApplication.Models.ArtmoModels>
+<div id="tb">
+    <table class="table table-responsive-lg">
+        <tr>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">Target</span></h5></center>
+            </th>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">Native Term</span></h5></center>
+            </th>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">English Term</span></h5></center>
+            </th>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">Date Acquired</span></h5></center>
+            </th>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">Date Added</span></h5></center>
+            </th>
+            <th>
+                <center><h5><span class="badge badge-pill badge-light">Last Modified</span></h5></center>
+            </th>
+            <th>
+                <div class="form-group">
+                    <center>
+
+                        @Ajax.ActionLink("add_circle_outline", "AddEdit", null, new AjaxOptions()
+                   {
+                       HttpMethod = "GET",
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "post"
+                   }, new { @class = "btn material-icons", data_toggle = "modal", data_target = "#myInput" })
+                        @Html.ActionLink("get_app", "DownloadFile", null, new { @class = "btn material-icons" })
+                    </center>
+
+                </div>
+
+
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <center>
+                        @{
+                            string src = "";
+                            if (item.Marker < 10)
+                            {
+                                src = "/_Markers/0" + item.Marker + ".jpg";
+                            }
+                            else
+                            {
+                                src = "/_Markers/" + item.Marker + ".jpg";
+                            }
+                        }
+                        <span class="hiddentxt pointer text-dark font-weight-bold text-md-left"><a class="material-icons">visibility</a>T#@item.Marker</span>
+                        <span class="hiddenimg">
+                            <img src=@src class="img-thumbnail" id="marker" style="max-width:75px;max-height:75px;" />
+                        </span>
+                    </center>
+
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.NativeTerm)</center>
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.EnglishTerm)</center>
+
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.DateAcquired)</center>
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.DateAdded)</center>
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.LastModified)</center>
+                </td>
+                <td>
+                    <center>
+                        @Ajax.ActionLink("edit", "AddEdit", new { id = item.Id }, new AjaxOptions()
+                   {
+                       HttpMethod = "GET",
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "post"
+                   }, new { @class = "btn btn-outline-dark btn-sm material-icons", data_toggle = "modal", data_target = "#myInput", title="Edit Item"})
+                        @Ajax.ActionLink("info", "_Details", new { id = item.Id }, new AjaxOptions()
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "post"
+                        }, new { @class = "btn btn-outline-dark btn-sm material-icons", data_toggle = "modal", data_target = "#myInput",title="Details" })
+                        @*@Html.ActionLink("Disable", "Delete", new { id = item.Id }, new { @class = "btn btn-outline-dark disabled" })*@
+                    </center>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

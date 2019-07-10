@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ArtmoWeb.WebApplication.Models.ArtmoModels>
+<div id="post">
+    <h5 class="modal-lg">Marker # @ViewBag.marker</h5>
+    <p>
+        @Ajax.ActionLink("New", "AddEdit", new { marker = ViewBag.marker }, new AjaxOptions()
+   {
+       HttpMethod = "GET",
+       InsertionMode = InsertionMode.Replace,
+       UpdateTargetId = "post"
+   },  new { @class = "btn btn-light btn-sm btn-block", data_target = "#myInput" })
+    </p>
+    <table class="table table-responsive-md">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NativeTerm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnglishTerm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Donor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateAcquired)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NativeTerm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnglishTerm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Donor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAcquired)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Details", "Details", new { id = item.Id })*@
+                    @Ajax.ActionLink("info", "_Details", new { id = item.Id }, new AjaxOptions()
+                   {
+                       HttpMethod = "GET",
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "post"
+                   },  new { @class = "btn btn-outline-dark btn-sm material-icons", data_target = "#myInput" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+@Scripts.Render("~/bundles/jquery")

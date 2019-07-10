@@ -1,0 +1,139 @@
+﻿@model ArtmoWeb.WebApplication.Models.ArtmoModels
+<div id="post">
+    @using (Ajax.BeginForm("AddEdit", "Artmo", FormMethod.Post,
+               new AjaxOptions
+               {
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "POST",
+                   LoadingElementId = "ajax-loader",
+                   UpdateTargetId = "post",
+  
+               }, new { enctype = "multipart/form-data", @class="form-horizontal" }
+       ))
+    {
+        @Html.AntiForgeryToken()
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            @Html.HiddenFor(m => m.Id)
+                            @Html.HiddenFor(m => m._img64)
+                            @Html.LabelFor(model => model.Marker)
+                            <label>(Input 0 to disable Item)</label>
+                            <div>
+                                @Html.TextBoxFor(model => model.Marker, new { type = "number", min = "0", max = "300", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Marker, null, new { @class = "font-weight-bold" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name)
+                            <div>
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Name, null, new { @class = "font-weight-bold",id="txtNT" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.GenericTerm)
+                            <div>
+                                @Html.TextBoxFor(model => model.GenericTerm, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.GenericTerm, null, new { @class = "font-weight-bold" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Donor)
+                            <div>
+                                @Html.TextBoxFor(model => model.Donor, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Donor, null, new { @class = "font-weight-bold" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DateAcquired)
+                            <div>
+                                @Html.TextBoxFor(model => model.DateAcquired, new { @class = "form-control datepicker", @type = "date", @Value = Model.DateAcquired.ToString("yyyy-MM-dd") })
+                                @Html.ValidationMessageFor(model => model.DateAcquired, null, new { @class = "font-weight-bold" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            Image
+                            <div>
+                                <input value="" class="form-control-file" type="file" id="imgf" name="imgf" accept="image" />
+                                <img src=@ViewBag.Image id="img" class="preview_img img-thumbnail" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EngDesc)
+                            <div>
+                                @Html.TextAreaFor(model => model.EngDesc, new { @class = "form-control", @rows = "5" })
+                                @Html.ValidationMessageFor(model => model.EngDesc, null, new { @class = "font-weight-bold" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IlocoDesc)
+                            <div>
+                                @Html.TextAreaFor(model => model.IlocoDesc, new { @class = "form-control", @rows = "5" })
+                                @Html.ValidationMessageFor(model => model.IlocoDesc, null, new { @class = "font-weight-bold" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input id="btnAdd" type="submit" class="btn btn-dark btn-block ripple"  value="@if (Model.IsEdit)
+            {
+                        <text>Update</text>
+            }
+            else
+            {
+                        <text>Add</text>
+            }" />
+    }
+</div>
+
+
+@Scripts.Render("~/bundles/jqueryval")
+<script>
+    function myFunction() {
+            $("#btnAdd").removeClass("disabled");
+            document.getElementById('btnAdd').style.visibility = 'visible';
+    }
+
+    document.getElementById("imgf").onchange = function () {
+        var reader = new FileReader();
+        if (this.files[0].size > 528385) {
+            alert("Image Size should not be greater than 500Kb");
+            $("#img").attr("src", "blank");
+            $("#img").hide();
+            $('#imgf').wrap('<form>').closest('form').get(0).reset();
+            $('#imgf').unwrap();
+            return false;
+        }
+        if (this.files[0].type.indexOf("image") == -1) {
+            alert("Invalid Type");
+            $("#img").attr("src", "blank");
+            $("#img").hide();
+            $('#imgf').wrap('<form>').closest('form').get(0).reset();
+            $('#imgf').unwrap();
+            return false;
+        }
+        reader.onload = function (e) {
+            // get loaded data and render thumbnail.
+            document.getElementById("img").src = e.target.result;
+            $("#img").show();
+        };
+
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+    };
+    $(document).ready(function () {
+        $("#btnAdd").click(function () {
+            if (!$("#btnAdd").hasClass("disabled")) {
+                $("#btnAdd").addClass("disabled");
+                document.getElementById('btnAdd').style.visibility = 'hidden';
+            }
+            setTimeout(myFunction, 3000);
+        });
+    });
+  
+</script>

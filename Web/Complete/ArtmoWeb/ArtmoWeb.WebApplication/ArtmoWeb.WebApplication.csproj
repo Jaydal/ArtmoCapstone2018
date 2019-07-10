@@ -1,0 +1,726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ECCCD176-49F7-4DA9-B69B-15E3328E2289}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtmoWeb.WebApplication</RootNamespace>
+    <AssemblyName>ArtmoWeb.WebApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArtmoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ArtifactContainer.cs" />
+    <Compile Include="Models\ArtmoModels.cs" />
+    <Compile Include="Models\CustomUserStore.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\CustomUserManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="28510838_1511116442339078_1437853383_n.jpg" />
+    <Content Include="28512203_1511116559005733_1614465725_n.jpg" />
+    <Content Include="28512314_1511116425672413_1226151114_n.jpg" />
+    <Content Include="28459194_1511116455672410_1849244414_n.jpg" />
+    <Content Include="Content\ajax-loader.gif" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\h6viz.gif" />
+    <Content Include="Content\loader.gif" />
+    <Content Include="Content\mat\css\material.css" />
+    <Content Include="Content\mat\css\material.min.css" />
+    <Content Include="Content\mat\js\material.js" />
+    <Content Include="Content\mat\js\material.min.js" />
+    <Content Include="Content\semantic\semantic.css" />
+    <Content Include="Content\semantic\semantic.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="favicon.ico" />
+    <Content Include="museum-original-png.png" />
+    <Content Include="NVPM\agriculture.png" />
+    <Content Include="NVPM\AVR.jpg" />
+    <Content Include="NVPM\balete pass.png" />
+    <Content Include="NVPM\barong.png" />
+    <Content Include="NVPM\Gallery 365.png" />
+    <Content Include="NVPM\IMG_8610.png" />
+    <Content Include="NVPM\religious.png" />
+    <Content Include="NVPM\Ues.png" />
+    <Content Include="PLGU-NV logo.png" />
+    <Content Include="s1.png" />
+    <Content Include="s2.png" />
+    <Content Include="s3.png" />
+    <Content Include="s4.png" />
+    <Content Include="s5.png" />
+    <Content Include="s6.png" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Content\mat\css\material.css.map" />
+    <Content Include="Content\mat\css\material.min.css.map" />
+    <Content Include="Content\mat\js\material.js.map" />
+    <Content Include="Content\mat\js\material.min.js.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker-en-CA.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar-tn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.br.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-CA.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-IE.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.km.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.oc.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.si.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ta.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tg.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uz-cyrl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uz-latn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Scripts\modalDis.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="_Markers\001.jpg" />
+    <Content Include="_Markers\002.jpg" />
+    <Content Include="_Markers\003.jpg" />
+    <Content Include="_Markers\004.jpg" />
+    <Content Include="_Markers\005.jpg" />
+    <Content Include="_Markers\006.jpg" />
+    <Content Include="_Markers\007.jpg" />
+    <Content Include="_Markers\008.jpg" />
+    <Content Include="_Markers\009.jpg" />
+    <Content Include="_Markers\010.jpg" />
+    <Content Include="_Markers\011.jpg" />
+    <Content Include="_Markers\012.jpg" />
+    <Content Include="_Markers\013.jpg" />
+    <Content Include="_Markers\014.jpg" />
+    <Content Include="_Markers\015.jpg" />
+    <Content Include="_Markers\016.jpg" />
+    <Content Include="_Markers\017.jpg" />
+    <Content Include="_Markers\018.jpg" />
+    <Content Include="_Markers\019.jpg" />
+    <Content Include="_Markers\020.jpg" />
+    <Content Include="_Markers\021.jpg" />
+    <Content Include="_Markers\022.jpg" />
+    <Content Include="_Markers\023.jpg" />
+    <Content Include="_Markers\024.jpg" />
+    <Content Include="_Markers\025.jpg" />
+    <Content Include="_Markers\026.jpg" />
+    <Content Include="_Markers\027.jpg" />
+    <Content Include="_Markers\028.jpg" />
+    <Content Include="_Markers\029.jpg" />
+    <Content Include="_Markers\030.jpg" />
+    <Content Include="_Markers\031.jpg" />
+    <Content Include="_Markers\032.jpg" />
+    <Content Include="_Markers\033.jpg" />
+    <Content Include="_Markers\034.jpg" />
+    <Content Include="_Markers\035.jpg" />
+    <Content Include="_Markers\036.jpg" />
+    <Content Include="_Markers\037.jpg" />
+    <Content Include="_Markers\038.jpg" />
+    <Content Include="_Markers\039.jpg" />
+    <Content Include="_Markers\040.jpg" />
+    <Content Include="_Markers\041.jpg" />
+    <Content Include="_Markers\042.jpg" />
+    <Content Include="_Markers\043.jpg" />
+    <Content Include="_Markers\044.jpg" />
+    <Content Include="_Markers\045.jpg" />
+    <Content Include="_Markers\046.jpg" />
+    <Content Include="_Markers\047.jpg" />
+    <Content Include="_Markers\048.jpg" />
+    <Content Include="_Markers\049.jpg" />
+    <Content Include="_Markers\050.jpg" />
+    <Content Include="_Markers\051.jpg" />
+    <Content Include="_Markers\052.jpg" />
+    <Content Include="_Markers\053.jpg" />
+    <Content Include="_Markers\054.jpg" />
+    <Content Include="_Markers\055.jpg" />
+    <Content Include="_Markers\056.jpg" />
+    <Content Include="_Markers\057.jpg" />
+    <Content Include="_Markers\058.jpg" />
+    <Content Include="_Markers\059.jpg" />
+    <Content Include="_Markers\060.jpg" />
+    <Content Include="_Markers\061.jpg" />
+    <Content Include="_Markers\062.jpg" />
+    <Content Include="_Markers\063.jpg" />
+    <Content Include="_Markers\064.jpg" />
+    <Content Include="_Markers\065.jpg" />
+    <Content Include="_Markers\066.jpg" />
+    <Content Include="_Markers\067.jpg" />
+    <Content Include="_Markers\068.jpg" />
+    <Content Include="_Markers\069.jpg" />
+    <Content Include="_Markers\070.jpg" />
+    <Content Include="_Markers\071.jpg" />
+    <Content Include="_Markers\072.jpg" />
+    <Content Include="_Markers\073.jpg" />
+    <Content Include="_Markers\074.jpg" />
+    <Content Include="_Markers\075.jpg" />
+    <Content Include="_Markers\076.jpg" />
+    <Content Include="_Markers\077.jpg" />
+    <Content Include="_Markers\078.jpg" />
+    <Content Include="_Markers\079.jpg" />
+    <Content Include="_Markers\080.jpg" />
+    <Content Include="_Markers\081.jpg" />
+    <Content Include="_Markers\082.jpg" />
+    <Content Include="_Markers\083.jpg" />
+    <Content Include="_Markers\084.jpg" />
+    <Content Include="_Markers\085.jpg" />
+    <Content Include="_Markers\086.jpg" />
+    <Content Include="_Markers\087.jpg" />
+    <Content Include="_Markers\088.jpg" />
+    <Content Include="_Markers\089.jpg" />
+    <Content Include="_Markers\090.jpg" />
+    <Content Include="_Markers\091.jpg" />
+    <Content Include="_Markers\092.jpg" />
+    <Content Include="_Markers\093.jpg" />
+    <Content Include="_Markers\094.jpg" />
+    <Content Include="_Markers\095.jpg" />
+    <Content Include="_Markers\096.jpg" />
+    <Content Include="_Markers\097.jpg" />
+    <Content Include="_Markers\098.jpg" />
+    <Content Include="_Markers\099.jpg" />
+    <Content Include="_Markers\100.jpg" />
+    <Content Include="_Markers\101.jpg" />
+    <Content Include="_Markers\102.jpg" />
+    <Content Include="_Markers\103.jpg" />
+    <Content Include="_Markers\104.jpg" />
+    <Content Include="_Markers\105.jpg" />
+    <Content Include="_Markers\106.jpg" />
+    <Content Include="_Markers\107.jpg" />
+    <Content Include="_Markers\108.jpg" />
+    <Content Include="_Markers\109.jpg" />
+    <Content Include="_Markers\110.jpg" />
+    <Content Include="_Markers\111.jpg" />
+    <Content Include="_Markers\112.jpg" />
+    <Content Include="_Markers\113.jpg" />
+    <Content Include="_Markers\114.jpg" />
+    <Content Include="_Markers\115.jpg" />
+    <Content Include="_Markers\116.jpg" />
+    <Content Include="_Markers\117.jpg" />
+    <Content Include="_Markers\118.jpg" />
+    <Content Include="_Markers\119.jpg" />
+    <Content Include="_Markers\120.jpg" />
+    <Content Include="_Markers\121.jpg" />
+    <Content Include="_Markers\122.jpg" />
+    <Content Include="_Markers\123.jpg" />
+    <Content Include="_Markers\124.jpg" />
+    <Content Include="_Markers\125.jpg" />
+    <Content Include="_Markers\126.jpg" />
+    <Content Include="_Markers\127.jpg" />
+    <Content Include="_Markers\128.jpg" />
+    <Content Include="_Markers\129.jpg" />
+    <Content Include="_Markers\130.jpg" />
+    <Content Include="_Markers\131.jpg" />
+    <Content Include="_Markers\132.jpg" />
+    <Content Include="_Markers\133.jpg" />
+    <Content Include="_Markers\134.jpg" />
+    <Content Include="_Markers\135.jpg" />
+    <Content Include="_Markers\136.jpg" />
+    <Content Include="_Markers\137.jpg" />
+    <Content Include="_Markers\138.jpg" />
+    <Content Include="_Markers\139.jpg" />
+    <Content Include="_Markers\140.jpg" />
+    <Content Include="_Markers\141.jpg" />
+    <Content Include="_Markers\142.jpg" />
+    <Content Include="_Markers\143.jpg" />
+    <Content Include="_Markers\144.jpg" />
+    <Content Include="_Markers\145.jpg" />
+    <Content Include="_Markers\146.jpg" />
+    <Content Include="_Markers\147.jpg" />
+    <Content Include="_Markers\148.jpg" />
+    <Content Include="_Markers\149.jpg" />
+    <Content Include="_Markers\150.jpg" />
+    <Content Include="_Markers\151.jpg" />
+    <Content Include="_Markers\152.jpg" />
+    <Content Include="_Markers\153.jpg" />
+    <Content Include="_Markers\154.jpg" />
+    <Content Include="_Markers\155.jpg" />
+    <Content Include="_Markers\156.jpg" />
+    <Content Include="_Markers\157.jpg" />
+    <Content Include="_Markers\158.jpg" />
+    <Content Include="_Markers\159.jpg" />
+    <Content Include="_Markers\160.jpg" />
+    <Content Include="_Markers\161.jpg" />
+    <Content Include="_Markers\162.jpg" />
+    <Content Include="_Markers\163.jpg" />
+    <Content Include="_Markers\164.jpg" />
+    <Content Include="_Markers\165.jpg" />
+    <Content Include="_Markers\166.jpg" />
+    <Content Include="_Markers\167.jpg" />
+    <Content Include="_Markers\168.jpg" />
+    <Content Include="_Markers\169.jpg" />
+    <Content Include="_Markers\170.jpg" />
+    <Content Include="_Markers\171.jpg" />
+    <Content Include="_Markers\172.jpg" />
+    <Content Include="_Markers\173.jpg" />
+    <Content Include="_Markers\174.jpg" />
+    <Content Include="_Markers\175.jpg" />
+    <Content Include="_Markers\176.jpg" />
+    <Content Include="_Markers\177.jpg" />
+    <Content Include="_Markers\178.jpg" />
+    <Content Include="_Markers\179.jpg" />
+    <Content Include="_Markers\180.jpg" />
+    <Content Include="_Markers\181.jpg" />
+    <Content Include="_Markers\182.jpg" />
+    <Content Include="_Markers\183.jpg" />
+    <Content Include="_Markers\184.jpg" />
+    <Content Include="_Markers\185.jpg" />
+    <Content Include="_Markers\186.jpg" />
+    <Content Include="_Markers\187.jpg" />
+    <Content Include="_Markers\188.jpg" />
+    <Content Include="_Markers\189.jpg" />
+    <Content Include="_Markers\190.jpg" />
+    <Content Include="_Markers\191.jpg" />
+    <Content Include="_Markers\192.jpg" />
+    <Content Include="_Markers\193.jpg" />
+    <Content Include="_Markers\194.jpg" />
+    <Content Include="_Markers\195.jpg" />
+    <Content Include="_Markers\196.jpg" />
+    <Content Include="_Markers\197.jpg" />
+    <Content Include="_Markers\198.jpg" />
+    <Content Include="_Markers\199.jpg" />
+    <Content Include="_Markers\200.jpg" />
+    <Content Include="_Markers\201.jpg" />
+    <Content Include="_Markers\202.jpg" />
+    <Content Include="_Markers\203.jpg" />
+    <Content Include="_Markers\204.jpg" />
+    <Content Include="_Markers\205.jpg" />
+    <Content Include="_Markers\206.jpg" />
+    <Content Include="_Markers\207.jpg" />
+    <Content Include="_Markers\208.jpg" />
+    <Content Include="_Markers\209.jpg" />
+    <Content Include="_Markers\210.jpg" />
+    <Content Include="_Markers\211.jpg" />
+    <Content Include="_Markers\212.jpg" />
+    <Content Include="_Markers\213.jpg" />
+    <Content Include="_Markers\214.jpg" />
+    <Content Include="_Markers\215.jpg" />
+    <Content Include="_Markers\216.jpg" />
+    <Content Include="_Markers\217.jpg" />
+    <Content Include="_Markers\218.jpg" />
+    <Content Include="_Markers\219.jpg" />
+    <Content Include="_Markers\220.jpg" />
+    <Content Include="_Markers\221.jpg" />
+    <Content Include="_Markers\222.jpg" />
+    <Content Include="_Markers\223.jpg" />
+    <Content Include="_Markers\224.jpg" />
+    <Content Include="_Markers\225.jpg" />
+    <Content Include="_Markers\226.jpg" />
+    <Content Include="_Markers\227.jpg" />
+    <Content Include="_Markers\228.jpg" />
+    <Content Include="_Markers\229.jpg" />
+    <Content Include="_Markers\230.jpg" />
+    <Content Include="_Markers\231.jpg" />
+    <Content Include="_Markers\232.jpg" />
+    <Content Include="_Markers\233.jpg" />
+    <Content Include="_Markers\234.jpg" />
+    <Content Include="_Markers\235.jpg" />
+    <Content Include="_Markers\236.jpg" />
+    <Content Include="_Markers\237.jpg" />
+    <Content Include="_Markers\238.jpg" />
+    <Content Include="_Markers\239.jpg" />
+    <Content Include="_Markers\240.jpg" />
+    <Content Include="_Markers\241.jpg" />
+    <Content Include="_Markers\242.jpg" />
+    <Content Include="_Markers\243.jpg" />
+    <Content Include="_Markers\244.jpg" />
+    <Content Include="_Markers\245.jpg" />
+    <Content Include="_Markers\246.jpg" />
+    <Content Include="_Markers\247.jpg" />
+    <Content Include="_Markers\248.jpg" />
+    <Content Include="_Markers\249.jpg" />
+    <Content Include="_Markers\250.jpg" />
+    <Content Include="_Markers\251.jpg" />
+    <Content Include="_Markers\252.jpg" />
+    <Content Include="_Markers\253.jpg" />
+    <Content Include="_Markers\254.jpg" />
+    <Content Include="_Markers\255.jpg" />
+    <Content Include="_Markers\256.jpg" />
+    <Content Include="_Markers\257.jpg" />
+    <Content Include="_Markers\258.jpg" />
+    <Content Include="_Markers\259.jpg" />
+    <Content Include="_Markers\260.jpg" />
+    <Content Include="_Markers\261.jpg" />
+    <Content Include="_Markers\262.jpg" />
+    <Content Include="_Markers\263.jpg" />
+    <Content Include="_Markers\264.jpg" />
+    <Content Include="_Markers\265.jpg" />
+    <Content Include="_Markers\266.jpg" />
+    <Content Include="_Markers\267.jpg" />
+    <Content Include="_Markers\268.jpg" />
+    <Content Include="_Markers\269.jpg" />
+    <Content Include="_Markers\270.jpg" />
+    <Content Include="_Markers\271.jpg" />
+    <Content Include="_Markers\272.jpg" />
+    <Content Include="_Markers\273.jpg" />
+    <Content Include="_Markers\274.jpg" />
+    <Content Include="_Markers\275.jpg" />
+    <Content Include="_Markers\276.jpg" />
+    <Content Include="_Markers\277.jpg" />
+    <Content Include="_Markers\278.jpg" />
+    <Content Include="_Markers\279.jpg" />
+    <Content Include="_Markers\280.jpg" />
+    <Content Include="_Markers\281.jpg" />
+    <Content Include="_Markers\282.jpg" />
+    <Content Include="_Markers\283.jpg" />
+    <Content Include="_Markers\284.jpg" />
+    <Content Include="_Markers\285.jpg" />
+    <Content Include="_Markers\286.jpg" />
+    <Content Include="_Markers\287.jpg" />
+    <Content Include="_Markers\288.jpg" />
+    <Content Include="_Markers\289.jpg" />
+    <Content Include="_Markers\290.jpg" />
+    <Content Include="_Markers\291.jpg" />
+    <Content Include="_Markers\292.jpg" />
+    <Content Include="_Markers\293.jpg" />
+    <Content Include="_Markers\294.jpg" />
+    <Content Include="_Markers\295.jpg" />
+    <Content Include="_Markers\296.jpg" />
+    <Content Include="_Markers\297.jpg" />
+    <Content Include="_Markers\298.jpg" />
+    <Content Include="_Markers\299.jpg" />
+    <Content Include="_Markers\300.jpg" />
+    <Content Include="_Storage\artmo.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Storage\identity.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\gijgo.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Artmo\Index.cshtml" />
+    <Content Include="Views\Artmo\AddEdit.cshtml" />
+    <Content Include="Views\Artmo\Marker.cshtml" />
+    <Content Include="Views\Artmo\Items.cshtml" />
+    <Content Include="Views\Artmo\_Details.cshtml" />
+    <Content Include="Views\Artmo\_Index.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\LoginAgain.cshtml" />
+    <Content Include="Views\Artmo\RestoreFile.cshtml" />
+    <Content Include="_Storage\artmo.apk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_Storage\Backup\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55817/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

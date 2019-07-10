@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0">*@
+    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+    <title>@ViewBag.Title -  ARTMO</title>
+
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/semantic/semantic.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <style>
+        .fa {
+            font-size: 20px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+        }
+            .fa:hover {
+                color: black;
+                opacity: 0.7;
+            }
+        .gradientBG {
+            background-image: linear-gradient(45deg,#DBFDEC,white);
+        }
+
+        .hiddenimg {
+            display: none;
+        }
+
+        .hiddentxt:hover ~ .hiddenimg {
+            display: block;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        .textCur {
+            cursor: text;
+        }
+
+        .r {
+            position: absolute;
+            right: 150px;
+        }
+
+        .ripple {
+            background-position: center;
+            transition: background 0.5s;
+        }
+
+            .ripple:hover {
+                color: black;
+                background: var(--focus-color) radial-gradient(circle, transparent 1%, var(--focus-color) 1%) center/15000%;
+            }
+
+            .ripple:active {
+                background-color: var(--active-color);
+                background-size: 100%;
+                transition: background 0s;
+            }
+    </style>
+</head>
+<body>
+    @*<i class="material-icons fixed-top" style="cursor:pointer;">settings</i>*@
+    @if (Request.IsAuthenticated)
+    {
+        <nav class="navbar navbar-expand-lg navbar-fixed-top bg-dark text-light">
+            <a class="navbar-brand ripple" href="#">ARTMO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Items", "Index", "Artmo", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Targets", "Marker", "Artmo", null, new { @class = "nav-link" })
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">account_circle</i>@User.Identity.Name
+                        </a>
+                        <div class="dropdown-menu bg-dark-4" aria-labelledby="navbarDropdownMenuLink">
+                            @*<a class="dropdown-item" href="#">Manage</a>*@
+                            @Ajax.ActionLink("Manage", "Edit","Account",null, new AjaxOptions()
+                          {
+                              HttpMethod = "GET",
+                              InsertionMode = InsertionMode.Replace,
+                              UpdateTargetId = "post"
+                          }, new { @class = "dropdown-item", data_toggle = "modal", data_target = "#myInput", title="Edit Item"})
+
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                            }
+
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    }
+
+    <br /> <br /> <br />
+
+    <div class="container body-content">
+
+        @RenderBody()
+
+        <footer>
+            <hr />
+            <p class="btn btn-block btn-dark ripple">&copy; 2018 - ARTMO</p>
+        </footer>
+        <hr />
+    </div>
+
+    <div class="modal fade" id="myInput">
+
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="material-icons" style="cursor:pointer;" data-dismiss="modal">close</i>
+                </div>
+                <div class="modal-body">
+
+                    <center>
+                        <img id="ajax-loader" style="display:none;position: absolute; left: 0;top: 0;right: 0;bottom: 0;
+    margin: auto;" src=@Url.Content("~/Content/h6viz.gif") />
+                        <div id="post" class="container-fluid"></div>
+                    </center>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/mat")
+    <script src="~/Content/semantic/semantic.js"></script>
+    <script>
+            $("#myInput").on("hidden.bs.modal", function () {
+
+                location.reload();
+            });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

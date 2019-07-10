@@ -1,0 +1,140 @@
+﻿@model IEnumerable<ArtmoWeb.WebApplication.Models.ArtmoModels>
+
+@{
+    /**/
+
+    ViewBag.Title = "Artmo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@Html.ActionLink("Markers", "Marker", null, new { @class = "btn btn-block btn-group" })*@
+<hr />
+@using (Ajax.BeginForm("_Index", "Artmo",
+           new AjaxOptions
+           {
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "GET",
+               LoadingElementId = "ajax-loaders",
+               UpdateTargetId = "tb",
+           }
+           ))
+{
+    <div class="input-group">
+        <span class="input-group-btn">
+            <button type="submit" class="btn btn-sm btn-light material-icons ripple" value="Search ">
+                search
+            </button>
+        </span>&ensp;
+        @Html.TextBox("searchString", "", new { @class = "form-control right", @placeholder = "Search here", @style = "cursor:text" })
+    </div>
+
+}
+@using (Html.BeginForm("Index", "Artmo"))
+{
+    <center>
+        <img id="ajax-loaders" style="display:none;position: absolute; left: 0;top: 0;right: 0;bottom: 0;
+    margin: auto;" src=@Url.Content("~/Content/h6viz.gif") />
+    </center>
+    <div id="tb">
+        <table class="table table-responsive-lg">
+            <tr>
+                <th>
+                    <center><h5><span class="badge badge-pill badge-light">Target</span></h5></center>
+                </th>
+                <th>
+                    <center><h5><span class="badge badge-pill badge-light">Native Term</span></h5></center>
+                </th>
+                <th>
+                    <center><h5><span class="badge badge-pill badge-light">English Term</span></h5></center>
+                </th>
+                <th>
+                    <center><h5><span class="badge badge-pill badge-light">Date Acquired</span></h5></center>
+                </th>
+                <th>
+                    <center><h5><span class="badge badge-pill badge-light">Date Added</span></h5></center>
+                </th>
+                <th>
+                    <center><h5><span class="badge badge-pill badge-light">Last Modified</span></h5></center>
+                </th>
+                <th>
+                    <div class="form-group">
+                        <center>
+
+                            @Ajax.ActionLink("add_circle_outline", "AddEdit", null, new AjaxOptions()
+                       {
+                           HttpMethod = "GET",
+                           InsertionMode = InsertionMode.Replace,
+                           UpdateTargetId = "post"
+                       }, new { @class = "btn material-icons", data_toggle = "modal", data_target = "#myInput" })
+                            @Html.ActionLink("get_app", "DownloadFile", null, new { @class = "btn material-icons" })
+                        </center>
+
+                    </div>
+
+
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    <center>
+                        @{
+                            string src = "";
+                            if (item.Marker < 10)
+                            {
+                                src = "/_Markers/0" + item.Marker + ".jpg";
+                            }
+                            else
+                            {
+                                src = "/_Markers/" + item.Marker + ".jpg";
+                            }
+                        }
+                        <span class="hiddentxt pointer text-dark font-weight-bold text-md-left"><a class="material-icons">visibility</a>T#@item.Marker</span>
+                        <span class="hiddenimg">
+                            <img src=@src class="img-thumbnail" id="marker" style="max-width:75px;max-height:75px;" />
+                        </span>
+                    </center>
+
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.NativeTerm)</center>
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.EnglishTerm)</center>
+
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.DateAcquired)</center>
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.DateAdded)</center>
+                </td>
+                <td>
+                    <center> @Html.DisplayFor(modelItem => item.LastModified)</center>
+                </td>
+                <td>
+                    <center>
+                        @Ajax.ActionLink("edit", "AddEdit", new { id = item.Id }, new AjaxOptions()
+                   {
+                       HttpMethod = "GET",
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "post"
+                   }, new { @class = "btn btn-outline-dark btn-sm material-icons", data_toggle = "modal", data_target = "#myInput", title="Edit Item"})
+                        @Ajax.ActionLink("info", "_Details", new { id = item.Id }, new AjaxOptions()
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "post"
+                        }, new { @class = "btn btn-outline-dark btn-sm material-icons", data_toggle = "modal", data_target = "#myInput",title="Details" })
+                        @*@Html.ActionLink("Disable", "Delete", new { id = item.Id }, new { @class = "btn btn-outline-dark disabled" })*@
+                    </center>
+
+                </td>
+            </tr>
+            }
+
+        </table>
+    </div>
+
+}
