@@ -1,1 +1,1 @@
-# Capstone Project
+# Augmented Reality Application - Capstone Project
