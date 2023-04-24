@@ -24,4 +24,4 @@ To use the application and have a better experience, you'll be needing to scan t
 <br>
 <br>
 
-View [Capstone Research Paper](https://bit.ly/3HwJQKj).
+<strong>View [Capstone Research Paper](https://bit.ly/3HwJQKj).</strong>
