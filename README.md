@@ -11,6 +11,5 @@ Try it out!
 2. Select start.
 3. Scan this marker below:
 <br />
-![Screenshot](https://raw.githubusercontent.com/Jaydal/ArtmoCapstone2018/master/Web/Published/_Markers/001.jpg)
 
-
+<img src="https://raw.githubusercontent.com/Jaydal/ArtmoCapstone2018/master/Web/Published/_Markers/001.jpg" alt="Alt text" title="Optional title">
