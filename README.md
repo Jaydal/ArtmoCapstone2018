@@ -21,7 +21,6 @@ To use the application and have a better experience, you'll be needing to scan t
  <img  width="200px" height="200px" src="https://raw.githubusercontent.com/Jaydal/ArtmoCapstone2018/master/Web/Published/_Markers/291.jpg" alt="Marker 291" title="Marker 291">
  <br>
  </div>
- <br>
 <br>
 <br>
 <strong>View [Capstone Research Paper](https://bit.ly/3HwJQKj).</strong>
