@@ -23,4 +23,4 @@ To use the application and have a better experience, you'll be needing to scan t
 
 <br>
 <br>
-Check the [Capstone Research Paper](https://drive.google.com/file/d/1-ErhLe_xcgWFnFXblj7hO28VHCz-F8N7/view?usp=sharing)
+[Capstone Research Paper](https://drive.google.com/file/d/1-ErhLe_xcgWFnFXblj7hO28VHCz-F8N7/view)
