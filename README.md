@@ -24,4 +24,4 @@ To use the application and have a better experience, you'll be needing to scan t
 <br>
 <br>
 
-View [Capstone Research Paper]([https://drive.google.com](https://drive.google.com/file/d/1-ErhLe_xcgWFnFXblj7hO28VHCz-F8N7/view)).
+View [Capstone Research Paper](https://drive.google.com](https://drive.google.com/file/d/1-ErhLe_xcgWFnFXblj7hO28VHCz-F8N7/view).
