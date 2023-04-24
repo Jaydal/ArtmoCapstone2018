@@ -9,7 +9,7 @@ Try it out!
 <br />
 1. Open the application.
 2. Select start.
-3. Scan this marker below:
+3. Scan each marker below:
 <br />
 <div align="center">
 <img width="200px" height="200px" src="https://raw.githubusercontent.com/Jaydal/ArtmoCapstone2018/master/Web/Published/_Markers/300.jpg" alt="Marker 300" title="Marker 300">
