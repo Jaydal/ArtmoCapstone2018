@@ -19,9 +19,11 @@ To use the application and have a better experience, you'll be needing to scan t
  <img  width="200px" height="200px" src="https://raw.githubusercontent.com/Jaydal/ArtmoCapstone2018/master/Web/Published/_Markers/216.jpg" alt="Marker 216" title="Marker 216">
  <hr>
  <img  width="200px" height="200px" src="https://raw.githubusercontent.com/Jaydal/ArtmoCapstone2018/master/Web/Published/_Markers/291.jpg" alt="Marker 291" title="Marker 291">
+ <br>
+ View all [Markers](https://github.com/Jaydal/ArtmoCapstone2018/blob/master/markers.md).
+
  </div>
  <br>
-View all [Markers](https://github.com/Jaydal/ArtmoCapstone2018/blob/master/markers.md).
 <br>
 <br>
 
