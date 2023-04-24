@@ -1,6 +1,6 @@
 # ARTMO: Augmented Reality Application (Capstone Project)
 Download the official application [here](https://bit.ly/artmo2018).
-<br />
+<br /><br />
 To use the application and have a better experience, you'll be needing to scan the markers which can be found in this location: [The People’s Museum and Library](https://goo.gl/maps/pTbCK2G5zQGGQJWV9).
 <br />
 <br />
