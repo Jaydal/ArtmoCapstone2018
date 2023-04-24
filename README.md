@@ -20,7 +20,7 @@ To use the application and have a better experience, you'll be needing to scan t
  <hr>
  <img  width="200px" height="200px" src="https://raw.githubusercontent.com/Jaydal/ArtmoCapstone2018/master/Web/Published/_Markers/291.jpg" alt="Marker 291" title="Marker 291">
  <br>
- <div>[View All](/markers.md)</div>
+ <div>[View All](https://github.com/Jaydal/ArtmoCapstone2018/blob/4f391875ed8e21809729c249621ae9625044864c/markers.md)</div>
  </div>
  <br>
 <br>
