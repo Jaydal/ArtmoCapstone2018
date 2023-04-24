@@ -5,11 +5,11 @@ To use the application and have a better experience, you'll be needing to scan t
 <br />
 <br />
 
-Try it out!
+<strong>Try it out!</strong>
 <br />
 1. Open the application.
 2. Select start.
-3. Scan each marker below:
+3. Scan each marker beadd for loop to readme.mdlow:
 <br />
 <div align="center">
 <img width="200px" height="200px" src="https://raw.githubusercontent.com/Jaydal/ArtmoCapstone2018/master/Web/Published/_Markers/300.jpg" alt="Marker 300" title="Marker 300">
