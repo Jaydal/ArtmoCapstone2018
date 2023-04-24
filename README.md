@@ -20,8 +20,3 @@ Try it out!
  <hr>
  <img  width="200px" height="200px" src="https://raw.githubusercontent.com/Jaydal/ArtmoCapstone2018/master/Web/Published/_Markers/291.jpg" alt="Marker 291" title="Marker 291">
  </div>
-for (i in 1:5) {
-    cat("## This is a heading for ", i, "\n")
-    cat("<!-- This is a comment for ", i, "-->\n")
-    print(i)    
-}
