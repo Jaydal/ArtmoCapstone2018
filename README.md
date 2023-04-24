@@ -12,4 +12,4 @@ Try it out!
 3. Scan this marker below:
 <br />
 
-<img src="https://raw.githubusercontent.com/Jaydal/ArtmoCapstone2018/master/Web/Published/_Markers/001.jpg" alt="Alt text" title="Optional title">
+<img src="https://raw.githubusercontent.com/Jaydal/ArtmoCapstone2018/master/Web/Published/_Markers/300.jpg" alt="Marker 300" title="Marker 300">
