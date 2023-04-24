@@ -23,4 +23,5 @@ To use the application and have a better experience, you'll be needing to scan t
 
 <br>
 <br>
-[Capstone Research Paper](https://drive.google.com)
+
+[Capstone Research Paper](https://drive.google.com).
