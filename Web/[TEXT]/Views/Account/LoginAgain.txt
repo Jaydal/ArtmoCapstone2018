@@ -1,8 +1,0 @@
-﻿<div id="post">
-    <h3>Password Updated Successfully!</h3>
-    <label>You must login using your new username/password.</label>
-    <hr />
-    @Html.ActionLink("Login Again", "Marker", "Artmo", null, new { @class = "btn btn-block" })
-    <hr />
-    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-block" })
-</div>
