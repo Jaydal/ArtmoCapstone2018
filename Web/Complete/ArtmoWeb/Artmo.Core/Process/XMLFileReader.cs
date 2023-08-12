@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Artmo.Core.Process
 {
-    public class XMLFileReader
+    public class XMLFileReader:IXMLFileReader
     {
         IItem _item;
 
@@ -22,5 +22,14 @@ namespace Artmo.Core.Process
 
             return _item;
         }
+
+        public IItem GetItem(IItem item)
+        {
+
+            _item.Name = "Test Item";
+
+            return _item;
+        }
+
     }
 }
