@@ -1,0 +1,12 @@
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\bin\Debug\net6.0\Artmo.Core.deps.json
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\bin\Debug\net6.0\Artmo.Core.dll
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\bin\Debug\net6.0\Artmo.Core.pdb
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\obj\Debug\net6.0\Artmo.Core.csproj.AssemblyReference.cache
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\obj\Debug\net6.0\Artmo.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\obj\Debug\net6.0\Artmo.Core.AssemblyInfoInputs.cache
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\obj\Debug\net6.0\Artmo.Core.AssemblyInfo.cs
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\obj\Debug\net6.0\Artmo.Core.csproj.CoreCompileInputs.cache
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\obj\Debug\net6.0\Artmo.Core.dll
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\obj\Debug\net6.0\refint\Artmo.Core.dll
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\obj\Debug\net6.0\Artmo.Core.pdb
+D:\DEV\Artmo\Web\Complete\ArtmoWeb\Artmo.Core\obj\Debug\net6.0\ref\Artmo.Core.dll
